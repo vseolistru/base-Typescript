@@ -1,9 +1,8 @@
-const logIn = (user:User):void => {
-    const {login, password} = user
-    if (!login && !password) {
-        console.log(`identification fields ${login} & ${password} can not be an empty`)
+const logIn = (user:{login:string, password:string}):void => {
+    if (!user.login && !user.password) {
+        console.log(`identification fields ${user.login} & ${user.password} can not be an empty`)
     }
-    console.log(`Greetings ${login}`)
+    console.log(`Greetings ${user.login}`)
     console.log(user)
 }
 
@@ -12,7 +11,7 @@ interface Admin {
     email: string;
     password: string;
     isOnline: boolean;
-    lastVisited: any;
+    lastVisited: Date;
     role: string;
 }
 
@@ -21,17 +20,16 @@ interface User {
     email: string;
     password: string;
     isOnline: boolean;
-    lastVisited: any;
+    lastVisited: Date;
 }
 
-const date = Date()
 
 const admin: Admin = {
     login : 'admin',
     email: 'admin@domain.com',
     password : 'somePassword',
     isOnline: false,
-    lastVisited: date,
+    lastVisited: new Date(),
     role:'superUser'
 }
 const user: User = {
@@ -39,7 +37,7 @@ const user: User = {
     email: 'user1@domain.com',
     password : 'somePass',
     isOnline: true,
-    lastVisited: date,
+    lastVisited: new Date(),
 }
 
 logIn(user)
