@@ -1,7 +1,6 @@
 //Защита типов
 namespace NewSpace {
 
-
     type Fish = { swim: () => void }
     type Bird = { fly: () => void }
 
