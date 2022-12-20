@@ -1,21 +1,14 @@
-`npm init -y` 
-
-`npm i -D typescript`
-
-`./node_modules/.bin/tsc --init`
-insert in tsc config 
-
-    {
-    "compilerOptions": {
+{
+  "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
     "lib": [
-    "ES6",
-    "ES2017",
-    "ES2018",
-    "ES2019",
-    "ES2020",
-    "dom"
+      "ES6",
+      "ES2017",
+      "ES2018",
+      "ES2019",
+      "ES2020",
+      "dom"
     ],
     "sourceMap": true,
     "outDir": "./dist",
@@ -34,9 +27,7 @@ insert in tsc config
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
-    },
-    "include": ["src"],
-    "exclude": ["node_modules"]
-    }
-
-**gitignore [folder]/node_modules**
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
