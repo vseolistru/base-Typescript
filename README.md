@@ -40,3 +40,6 @@ insert in tsc config
     }
 
 **gitignore [folder]/node_modules**
+
+
+`npx create-react-app ts_app --template typescript`
