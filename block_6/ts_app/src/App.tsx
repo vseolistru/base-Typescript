@@ -2,18 +2,26 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import TodoItem, {ITodoItem} from "./components/TodoItem";
 import NewTodoForm from "./components/NewTodoForm";
+import {Todo} from "./components/types";
 
 function App() {
 
     const [title, setTitle] = useState('');
     const [todos, setTodos] = useState<ITodoItem[]>([]);
 
+    // useEffect(()=>{
+    //     fetch('https://jsonplaceholder.typicode.com/todos')
+    //         .then(res=>res.json())
+    //         .then((data:ITodoItem[]) => { setTodos(data) })
+    // },[])
+
     const newTodo: ITodoItem = {
         id: Date.now().toString(),
         title: title,
-        completed: false
+        completed: false,
+        toggle: ()=>{},
+        handleDelete: ()=>{}
     }
-
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
         setTitle(e.target.value)
@@ -22,7 +30,18 @@ function App() {
         setTodos([newTodo, ...todos])
         setTitle('')
     }
+    const handleDelete = (id:ITodoItem['id']) => {
+        setTodos(todos.filter(item => item.id !== id))
+    }
 
+   const toggle = (id:ITodoItem['id']) => {
+        setTodos(todos.map(item => {
+            if (item.id !== id) return item
+            return {
+                ...item, completed: !item.completed,
+            }
+        }))
+   }
 
   return (
     <div className="App">
@@ -30,7 +49,8 @@ function App() {
         <NewTodoForm value={title} onChange={handleInput} handleClick={addTodo}/>
         {todos.map( item =>
             <TodoItem key={item.id} id={item.id} title={item.title} completed={item.completed}
-                 children={<div>Hello World</div>} style={{ border: '1px solid black' }}/>)}
+                      toggle={toggle} handleDelete={handleDelete}
+                 children={<div>{' '}</div>} style={{ border: '1px solid black' }}/>)}
 
     </div>
   );
