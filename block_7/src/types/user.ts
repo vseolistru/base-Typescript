@@ -11,7 +11,7 @@ export type GithubUser = {
     public_repos: number;
     followers: number;
     following: number;
-    created_at: number;
+    created_at: string;
 }
 
 export type UserError = {
@@ -32,6 +32,6 @@ export type LocalGithubUser = {
     repos: number;
     followers: number;
     following: number;
-    created: number;
+    created: string;
 }
 

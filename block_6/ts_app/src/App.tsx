@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import TodoItem, {ITodoItem} from "./components/TodoItem";
 import NewTodoForm from "./components/NewTodoForm";
-import {Todo} from "./components/types";
+
 
 function App() {
 
