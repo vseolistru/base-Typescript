@@ -1,0 +1,28 @@
+:global {
+  body[data-theme='light'] {
+    --info-color: var(--gray-200);
+  }
+
+  body[data-theme='dark'] {
+    --info-color: var(--white);
+  }
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  color: var(--info-color);
+  gap: 1rem;
+
+  svg {
+    fill: var(--info-color);
+    margin-right: 1rem;
+    width: 20px;
+  }
+
+  @media (min-width: 767px) {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-auto-flow: column;
+  }
+}

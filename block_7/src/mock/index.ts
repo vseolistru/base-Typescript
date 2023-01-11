@@ -1,7 +1,6 @@
-import {GithubUser, LocalGithubUser} from "types";
+import {LocalGithubUser} from "types";
 export const UserMock: LocalGithubUser  = {
     'login':	"vseolistru",
-    'id':	84522022,
     'avatar':	"https://avatars.githubusercontent.com/u/84522022?v=4",
     'name':	"Ivan",
     'company':	'',
